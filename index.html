@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Junayeth Shahriar Provat — IT Lead · Amsterdam</title>
+<meta name="description" content="IT operations leader based in Amsterdam. 7+ years building secure, scalable IT functions from the ground up."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  FOLDER STRUCTURE                                            ║
+  ╠══════════════════════════════════════════════════════════════╣
+  ║  portfolio.html                                              ║
+  ║  CV_Junayeth_2026.pdf                                        ║
+  ║  images/                                                     ║
+  ║    hero.jpg            Hero portrait (3:4)                   ║
+  ║    about.jpg           About section photo                   ║
+  ║    strip-1.jpg → strip-7.jpg   Scrolling strip photos        ║
+  ║  media/                                                      ║
+  ║    photos/             Add your JPG/PNG work photos here     ║
+  ║      photo-1.jpg                                             ║
+  ║      photo-2.jpg  ...etc                                     ║
+  ║    videos/             Add your MP4 work videos here         ║
+  ║      video-1.mp4                                             ║
+  ║      video-2.mp4  ...etc                                     ║
+  ║                                                              ║
+  ║  To add media: edit the MEDIA_CONFIG arrays below            ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+
+<script>
+// ── EDIT THIS to add your photos and videos ──────────────────────
+const MEDIA_CONFIG = {
+  photos: [
+    // { src: "media/photos/photo-1.jpg", caption: "AV rollout at Dexter" },
+    // { src: "media/photos/photo-2.jpg", caption: "Sentinels hackathon" },
+    // Add more entries like the examples above
+  ],
+  videos: [
+    // { src: "media/videos/video-1.mp4", caption: "Office setup timelapse" },
+    // { src: "media/videos/video-2.mp4", caption: "All Hands setup" },
+    // Add more entries like the examples above
+  ]
+};
+</script>
+
+<style>
+:root {
+  --ink:    #0A0A0F;
+  --card:   #111119;
+  --border: #1E1E2C;
+  --orange: #E05A00;
+  --ora-d:  rgba(224,90,0,0.12);
+  --ora-g:  rgba(224,90,0,0.05);
+  --warm:   #F2EDE4;
+  --muted:  #7A7A90;
+  --faint:  #2A2A3A;
+  --green:  #3ECF8E;
+  --serif:  "Playfair Display", Georgia, serif;
+  --sans:   "Outfit", system-ui, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--warm);font-family:var(--sans);font-size:16px;line-height:1.65;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:999}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--ink)}::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 52px;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
+nav.scrolled{background:rgba(10,10,15,.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:14px 52px}
+.nav-mark{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--orange);text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--warm)}
+.nav-cta{border:1px solid var(--orange)!important;color:var(--orange)!important;padding:6px 18px;border-radius:2px;transition:background .2s!important}
+.nav-cta:hover{background:var(--ora-d)!important}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;padding:0 52px;position:relative;overflow:hidden}
+.hero-layout{display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center;padding:140px 0 52px}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:32px;animation:fadeUp .7s ease both}
+.hero-dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 10px var(--green);animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-eyebrow span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hero-name{font-family:var(--serif);font-size:clamp(50px,7.5vw,90px);font-weight:900;line-height:.9;letter-spacing:-.035em;color:var(--warm);margin-bottom:10px;animation:fadeUp .7s .1s ease both}
+.hero-name em{font-style:italic;color:var(--orange)}
+.hero-role{font-family:var(--serif);font-size:clamp(15px,1.8vw,20px);font-weight:400;font-style:italic;color:var(--muted);margin-bottom:28px;animation:fadeUp .7s .2s ease both}
+.hero-intro{max-width:500px;font-size:16px;font-weight:300;line-height:1.82;color:rgba(242,237,228,.68);margin-bottom:40px;animation:fadeUp .7s .3s ease both}
+.hero-intro strong{color:var(--warm);font-weight:500}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .7s .4s ease both}
+.btn-orange{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#0A0A0F;padding:13px 28px;border-radius:2px;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.02em;transition:opacity .2s,transform .2s}
+.btn-orange:hover{opacity:.88;transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--faint);color:var(--muted);padding:13px 28px;border-radius:2px;text-decoration:none;font-size:14px;font-weight:400;transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:var(--orange);color:var(--warm)}
+.hero-photo-wrap{position:relative;animation:fadeUp .7s .2s ease both}
+.hero-photo-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:3px;display:block;filter:grayscale(10%)}
+.hero-photo-wrap::before{content:"";position:absolute;inset:-10px;border:1px solid var(--orange);border-radius:5px;opacity:.2;z-index:-1}
+.hero-photo-label{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(10,10,15,.82);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:2px;padding:8px 12px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero-strip{border-top:1px solid var(--border);padding:24px 0;display:flex;align-items:center;gap:0;flex-wrap:wrap;position:relative;z-index:1;animation:fadeUp .7s .6s ease both}
+.hero-stat{display:flex;flex-direction:column;gap:3px;padding-right:36px;margin-right:36px;border-right:1px solid var(--border)}
+.hero-stat-num{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--orange);letter-spacing:-.02em;line-height:1}
+.hero-stat-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.csat-badge{display:flex;align-items:center;gap:14px;margin-left:auto;background:linear-gradient(135deg,rgba(224,90,0,.1),rgba(224,90,0,.04));border:1px solid rgba(224,90,0,.35);border-radius:3px;padding:12px 20px;transition:border-color .2s,box-shadow .2s}
+.csat-badge:hover{border-color:rgba(224,90,0,.6);box-shadow:0 0 20px rgba(224,90,0,.08)}
+.csat-star{font-size:24px;line-height:1;filter:drop-shadow(0 0 6px rgba(224,90,0,.5))}
+.csat-num{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--orange);line-height:1;letter-spacing:-.02em}
+.csat-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+
+/* SHARED */
+section{padding:96px 52px;position:relative;z-index:1}
+.wrap{max-width:1080px;margin:0 auto}
+.lbl{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.lbl::before{content:"";width:26px;height:1px;background:var(--orange)}
+.sh{font-family:var(--serif);font-size:clamp(34px,4.5vw,54px);font-weight:700;line-height:1.05;letter-spacing:-.025em;color:var(--warm);margin-bottom:52px}
+.sh em{font-style:italic;color:var(--orange)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* EXPERIENCE */
+#experience{background:var(--ink)}
+.exp-entries{display:flex;flex-direction:column}
+.exp-entry{border-top:1px solid var(--border);padding:44px 0}
+.exp-entry:last-child{border-bottom:1px solid var(--border)}
+.exp-inner{display:grid;grid-template-columns:200px 1fr;gap:48px}
+.exp-left{padding-top:4px}
+
+/* Logo containers — handle both light and dark bg logos */
+.logo-wrap{height:36px;display:flex;align-items:center;margin-bottom:16px}
+.exp-logo{max-height:32px;max-width:160px;width:auto;display:block;object-fit:contain;object-position:left}
+/* Light-bg logos need inversion for dark site */
+.logo-invert{filter:brightness(0) invert(1)}
+/* Dark-bg logos (Dexter, Fenergo) — trim the black bg */
+.logo-darktrim{filter:brightness(1.05) saturate(1.1);border-radius:2px}
+
+.exp-period{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.exp-co{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--warm);margin-bottom:4px}
+.exp-loc{font-size:12px;color:var(--muted);margin-bottom:12px}
+.exp-badge{display:inline-flex;background:rgba(62,207,142,.08);border:1px solid rgba(62,207,142,.25);color:#3ECF8E;font-size:11px;padding:3px 10px;border-radius:2px;letter-spacing:.06em}
+.exp-role-title{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--warm);margin-bottom:16px;line-height:1.12}
+.exp-prose{font-size:15.5px;font-weight:300;line-height:1.85;color:rgba(242,237,228,.66);max-width:640px;margin-bottom:22px}
+.exp-prose strong{color:var(--warm);font-weight:500}
+.exp-tags{display:flex;flex-wrap:wrap;gap:7px}
+.exp-tag{background:rgba(74,158,255,.07);border:1px solid rgba(74,158,255,.18);color:#8BBCF0;font-size:12px;padding:4px 12px;border-radius:2px;letter-spacing:.02em}
+
+/* ABOUT */
+#about{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.about-layout{display:grid;grid-template-columns:3fr 2fr;gap:72px;align-items:start}
+.about-prose p{font-size:17px;font-weight:300;line-height:1.88;color:rgba(242,237,228,.76);margin-bottom:24px}
+.about-prose p:last-child{margin-bottom:0}
+.about-prose strong{color:var(--warm);font-weight:500}
+.about-side{display:flex;flex-direction:column;gap:14px;position:sticky;top:120px}
+.about-photo img{width:100%;border-radius:3px;display:block;filter:grayscale(10%)}
+.about-photo-cap{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:10px}
+.about-facts{display:flex;flex-direction:column;gap:2px}
+.fact-row{background:var(--ink);border:1px solid var(--border);padding:14px 18px;display:grid;grid-template-columns:80px 1fr;gap:12px;align-items:start}
+.fact-row:first-child{border-radius:3px 3px 0 0}.fact-row:last-child{border-radius:0 0 3px 3px}
+.fact-key{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:2px;white-space:nowrap}
+.fact-val{font-size:13.5px;font-weight:500;color:var(--warm);line-height:1.4}
+
+/* PHOTO STRIP */
+#photostrip{padding:0;overflow:hidden;background:var(--ink);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.strip-scroll{display:flex;gap:3px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
+.strip-scroll:active{cursor:grabbing}
+.strip-scroll::-webkit-scrollbar{display:none}
+.strip-item{flex:0 0 auto;position:relative;overflow:hidden}
+.strip-item img{height:300px;width:auto;display:block;object-fit:cover;filter:grayscale(20%);transition:filter .35s,transform .45s}
+.strip-item:hover img{filter:grayscale(0%);transform:scale(1.03)}
+.strip-item-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,10,15,.88));padding:28px 14px 12px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:rgba(242,237,228,.55);pointer-events:none}
+
+/* APPROACH */
+#approach{background:var(--ink)}
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.ablock{background:var(--ink);padding:40px 32px;transition:background .3s}
+.ablock:hover{background:var(--card)}
+.anum{font-family:var(--serif);font-size:48px;font-weight:900;color:var(--faint);line-height:1;margin-bottom:20px;letter-spacing:-.04em}
+.atitle{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--warm);margin-bottom:12px;line-height:1.2}
+.abody{font-size:15px;font-weight:300;line-height:1.75;color:var(--muted)}
+
+/* PROJECTS */
+#projects{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border)}
+.proj-card{background:var(--card);padding:36px 32px;transition:background .3s;position:relative;overflow:hidden}
+.proj-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),transparent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.proj-card:hover{background:var(--ink)}.proj-card:hover::after{transform:scaleX(1)}
+.proj-glyph{font-size:28px;margin-bottom:20px;display:block}
+.proj-where{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.proj-name{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--warm);margin-bottom:12px;line-height:1.2}
+.proj-desc{font-size:14.5px;font-weight:300;line-height:1.75;color:var(--muted)}
+
+/* MEDIA GALLERY */
+#media-gallery{background:var(--ink)}
+.media-tabs{display:flex;gap:2px;margin-bottom:40px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden;width:fit-content}
+.media-tab{padding:10px 28px;font-size:13px;font-weight:500;letter-spacing:.04em;cursor:pointer;border:none;background:var(--ink);color:var(--muted);transition:background .2s,color .2s}
+.media-tab.active{background:var(--orange);color:#0A0A0F}
+.media-panel{display:none}
+.media-panel.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.media-panel.video-panel.active{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.media-card{background:var(--card);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:border-color .2s,transform .2s}
+.media-card:hover{border-color:rgba(224,90,0,.3);transform:translateY(-3px)}
+.media-card img{width:100%;height:200px;object-fit:cover;display:block;filter:grayscale(10%);transition:filter .3s}
+.media-card:hover img{filter:grayscale(0%)}
+.media-card video{width:100%;height:220px;display:block;background:#000;object-fit:contain}
+.media-cap{padding:12px 14px;font-size:12px;color:var(--muted);letter-spacing:.04em}
+.media-empty{grid-column:1/-1;padding:60px 0;text-align:center;color:var(--muted);font-size:15px;font-weight:300;border:1px dashed var(--border);border-radius:3px}
+.media-empty span{display:block;font-size:22px;margin-bottom:12px;opacity:.4}
+
+/* RECOMMENDATIONS */
+#recommendations{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rec-card{background:var(--ink);border:1px solid var(--border);border-radius:3px;padding:28px 24px;display:flex;flex-direction:column;gap:16px;transition:border-color .2s,transform .2s}
+.rec-card:hover{border-color:rgba(224,90,0,.3);transform:translateY(-3px)}
+.rec-quote{font-family:var(--serif);font-size:34px;color:var(--orange);line-height:1;opacity:.4}
+.rec-text{font-size:14px;font-weight:300;line-height:1.78;color:rgba(242,237,228,.7);flex:1;font-style:italic}
+.rec-author{border-top:1px solid var(--border);padding-top:14px}
+.rec-name{font-size:13px;font-weight:600;color:var(--warm);margin-bottom:3px}
+.rec-title{font-size:12px;color:var(--muted);line-height:1.4}
+
+/* SKILLS */
+#skills{background:var(--ink)}
+.skills-layout{display:grid;grid-template-columns:1fr 2fr;gap:72px;align-items:start}
+.skills-intro{font-size:15.5px;font-weight:300;line-height:1.8;color:var(--muted);position:sticky;top:120px}
+.skills-intro p{margin-bottom:16px}
+.skill-row{border-top:1px solid var(--border);padding-top:20px;margin-bottom:20px;display:grid;grid-template-columns:180px 1fr;gap:22px;align-items:start}
+.skill-cat{font-size:13px;font-weight:500;color:var(--warm);padding-top:4px}
+.skill-pills{display:flex;flex-wrap:wrap;gap:7px}
+.pill{background:rgba(242,237,228,.04);border:1px solid var(--faint);color:rgba(242,237,228,.5);font-size:13px;padding:4px 13px;border-radius:2px;transition:all .2s}
+.pill:hover{background:var(--ora-d);border-color:rgba(224,90,0,.3);color:var(--warm)}
+
+/* CERTIFICATIONS */
+#certifications{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.certs-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.cert-cell{background:var(--card);padding:22px 20px;display:flex;align-items:flex-start;gap:12px;transition:background .2s}
+.cert-cell:hover{background:var(--ink)}
+.cert-dot{width:5px;height:5px;background:var(--orange);border-radius:50%;flex-shrink:0;margin-top:8px;box-shadow:0 0 7px rgba(224,90,0,.5)}
+.cert-n{font-size:13.5px;font-weight:500;color:var(--warm);line-height:1.35;margin-bottom:3px}
+.cert-i{font-size:12px;color:var(--muted)}
+
+/* HOBBIES */
+#hobbies{background:var(--ink)}
+.hobbies-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.hobby-card{background:var(--ink);padding:36px 28px;transition:background .3s;cursor:default}
+.hobby-card:hover{background:var(--card)}
+.hobby-icon{font-size:36px;margin-bottom:18px;display:block;line-height:1}
+.hobby-name{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--warm);margin-bottom:8px}
+.hobby-body{font-size:14px;font-weight:300;line-height:1.65;color:var(--muted)}
+
+/* LANGUAGES */
+#languages{background:var(--card);border-top:1px solid var(--border);padding:72px 52px}
+.lang-row{display:flex;gap:12px;flex-wrap:wrap}
+.lang-block{flex:1;min-width:150px;background:var(--ink);border:1px solid var(--border);border-radius:3px;padding:20px 18px;transition:border-color .2s}
+.lang-block:hover{border-color:rgba(224,90,0,.3)}
+.lang-n{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--warm);margin-bottom:4px}
+.lang-l{font-size:12px;color:var(--muted);margin-bottom:12px}
+.lang-track{height:2px;background:var(--faint);border-radius:1px;overflow:hidden}
+.lang-fill{height:100%;background:linear-gradient(90deg,var(--orange),#FF8C3A);border-radius:1px;transition:width 1.4s cubic-bezier(.4,0,.2,1);width:0}
+
+/* CONTACT */
+#contact{background:var(--ink);border-top:1px solid var(--border)}
+.contact-inner{max-width:600px}
+.contact-h{font-family:var(--serif);font-size:clamp(40px,6.5vw,68px);font-weight:900;line-height:.93;letter-spacing:-.035em;color:var(--warm);margin-bottom:24px}
+.contact-h em{color:var(--orange);font-style:italic}
+.contact-body{font-size:16px;font-weight:300;line-height:1.75;color:var(--muted);margin-bottom:36px;max-width:440px}
+.contact-items{display:flex;flex-direction:column;gap:10px}
+.contact-item{display:inline-flex;align-items:center;gap:14px;color:var(--muted);text-decoration:none;font-size:14.5px;padding:13px 20px;border:1px solid var(--border);border-radius:2px;transition:all .2s;max-width:400px}
+.contact-item:hover{border-color:var(--orange);color:var(--warm);background:var(--ora-g);transform:translateX(4px)}
+.contact-item svg{width:15px;height:15px;opacity:.4;flex-shrink:0}
+
+/* FOOTER */
+footer{background:var(--ink);border-top:1px solid var(--border);padding:20px 52px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);letter-spacing:.04em;position:relative;z-index:1}
+footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--orange)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:16px 20px}nav.scrolled{padding:12px 20px}.nav-links{display:none}
+  #hero,section{padding-left:20px;padding-right:20px}section{padding-top:60px;padding-bottom:60px}
+  #hero{padding:0 20px}.hero-layout{grid-template-columns:1fr;padding-top:110px;padding-bottom:44px;gap:36px}
+  .hero-photo-wrap{max-width:240px}
+  .about-layout{grid-template-columns:1fr}.about-side{position:static}
+  .approach-grid,.proj-grid,.rec-grid,.certs-cols,.hobbies-grid{grid-template-columns:1fr}
+  .exp-inner{grid-template-columns:1fr;gap:16px}
+  .skills-layout{grid-template-columns:1fr;gap:28px}.skills-intro{position:static}
+  .skill-row{grid-template-columns:1fr;gap:10px}
+  #languages{padding:56px 20px}
+  footer{flex-direction:column;gap:8px;text-align:center}
+  .hero-strip{flex-wrap:wrap;gap:20px}.csat-badge{margin-left:0;margin-top:4px}
+  .hero-stat{border-right:none;padding-right:0;margin-right:20px}
+  .media-panel.active,.media-panel.video-panel.active{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#hero" class="nav-mark">JSP</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#media-gallery">Media</a></li>
+    <li><a href="#hobbies">Interests</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-layout">
+    <div>
+     <!-- <div class="hero-eyebrow"><span class="hero-dot"></span><span>Available for IT Lead &amp; Manager roles · Amsterdam</span></div> -->
+      <h1 class="hero-name">Junayeth<br/><em>Provat</em></h1>
+      <p class="hero-role">IT Operations Leader · Amsterdam, Netherlands</p>
+      <p class="hero-intro">Most of my career I've been the <strong>autonomously building</strong> — owning everything from the service desk to the security framework. Seven years across fintech, crypto, and renewable energy. <strong>Now looking for a team lead role</strong> where I can bring that same ownership, with people around me.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-orange">Get in touch</a>
+        <a href="CV_Junayeth_2026.pdf" class="btn-ghost" download>Download CV</a>
+        <a href="https://linkedin.com/in/JunayethProvat" class="btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <!-- <div class="hero-photo-wrap">
+      <img src="images/hero.jpg" alt="Junayeth Provat"/>
+      <div class="hero-photo-label">Amsterdam · Available now</div>
+    </div>
+    </div> -->
+  <div class="hero-strip">
+    <div class="hero-stat"><span class="hero-stat-num">2</span><span class="hero-stat-label">Departments built</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">7+</span><span class="hero-stat-label">Years in IT industry</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">6</span><span class="hero-stat-label">Businesses Managed</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">100%</span><span class="hero-stat-label">CSAT across all roles</span></div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="wrap">
+    <p class="lbl reveal">How I work</p>
+    <h2 class="sh reveal">Three things I believe about IT</h2>
+    <div class="approach-grid">
+      <div class="ablock reveal"><div class="anum">01</div><div class="atitle">Documentation is a product, not a chore.</div><div class="abody">Runbooks, onboarding checklists, incident post-mortems — I write them because I've seen what happens when they don't exist. Good documentation means the organisation keeps working when I'm not there. That's the test I apply to everything I write down.</div></div>
+      <div class="ablock reveal d1"><div class="anum">02</div><div class="atitle">Security is an enabler, not a blocker.</div><div class="abody">The best security posture is one that people don't have to work around. MFA that integrates seamlessly. Access reviews that don't interrupt the business. Policies that explain the why, not just the what. Done right, compliance builds trust — with customers, partners, and inside the organisation.</div></div>
+      <div class="ablock reveal d2"><div class="anum">03</div><div class="atitle">Automate the repetitive, own the complex.</div><div class="abody">User provisioning, SLA alerts, access deprovisioning — these should happen without a human deciding to do them. That frees IT to focus on the problems that actually require judgment: architectural decisions, vendor evaluations, the edge cases that automation can't handle.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE — moved up -->
+<section id="experience">
+  <div class="wrap">
+    <p class="lbl reveal">Experience</p>
+    <h2 class="sh reveal">Where I've <em>built</em> things.</h2>
+    <div class="exp-entries">
+
+      <!-- DEXTER -->
+      <div class="exp-entry reveal">
+        <div class="exp-inner">
+          <div class="exp-left">
+            <!-- <div class="logo-wrap"><img src="data:image/png;base64,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+oVaKisra7dPunrARDbbuqSkJK993dEyZiMcDrf7TO82rq76IwOBgO68805t27ZNw4cPb7WdV65cqVQqpXXr1vXJud373EMoTNNUc3OzvvGNb+hLX/pSVs8T9L45/Pjjj3X48GGdPHlSpmn6o49zOWi86qS8vFw333xzj1zJTdPUu+++q/3792cMC685eNNNN6mystIPANM0VV9fr1dffTWrKUu8ZS8uLtbEiRNbTXsSDodVXV2t999/P68xaI7j6MYbb1RlZWWr6W02btyo+vr6vPqMvPUeN26chgwZkvOzIzNt55qaGr3++usd3ovo3RD/hS98QWPGjPG3g3cD+fbt27sMdG/4zJAhQ3TDDTe0uwn61KlT2rhxY5+cZqbPBZZ3UDU2NvrldrZ/EwqFFIlE/Moo3yacd+L35MMxuxrWYBiGzp49mzHMYrFY1ge+NywiHo+3+5n3wIh8TyLvgbQtlZSUdKvKMgyjw+lc8r3glZSUZBWUbWfRCIVCKioqyvrG+FQqpUQikfFn2T5OjsD6DFVaudyx35PzensHdU/2Q3i31eS6zt7YoJ5Y9u5OI5zpQafZrFdP7+uujoNs7z1su41y3T7nazsTWABwIQoNNgEAAgsACCwABBYAEFgAQGABILAAgMACAAILAIEFAAQWABBYAAgsACCwAIDAAkBgAQCBBQAEFgACCwAILAAgsAAQWABAYAEAgQWAwAIAAgsACCwABBYAEFgACCwAILAAgMACQGABAIEFAAQWAAILAAgsACCwABBYAEBgAQCBBYDAAgACCwAILAAEFgAQWABAYAEgsACAwAIAAgsAgQUABBYAEFgACCwAILAAgMACQGABAIEFgMACAAILAAgsAAQWABBYAEBgASCwAIDAAgACCwCBBQAEFgAQWAAILAAgsACAwAJAYAEAgQUABBYAAgsACCwAILAAEFgAQGABAIEFgMACAAILAAgsAAQWABBYAAgsACCwAIDAAkBgAcCl7P8BAkn+ACm0kFUAAAAASUVORK5CYII=" class="exp-logo logo-darktrim" alt="dexter logo"/></div> -->
+            <div class="exp-period">May 2024 — Present</div>
+            <div class="exp-co">Dexter Energy</div>
+            <div class="exp-loc">Amsterdam · Hybrid</div>
+            <span class="exp-badge">Current</span>
+          </div>
+          <div class="exp-right">
+            <div class="exp-role-title">IT Lead</div>
+            <div class="exp-prose">Dexter is a renewable energy startup building software to optimise energy trading. I joined with no formal IT structure and have been building it from the ground up — defining every process, writing every runbook, establishing the security baseline. <strong>The work here is about creating foundations that will hold up as the company scales.</strong><br/><br/>The most significant ongoing project is aligning our security posture to NIS2 and working toward ISO 27001 certification. I own endpoint management for our macOS fleet via Mosyle, run the complete Joiner/Mover/Leaver lifecycle with full audit trails, and administer the entire SaaS stack. More recently I've been coordinating AI productivity governance — managing rollout for ChatGPT, Claude, GitHub Copilot, and Windsurf — and delivered a phased AV rollout across 7 meeting rooms and a full All Hands space, <strong>under budget, with a living operational runbook.</strong></div>
+            <div class="exp-tags"><span class="exp-tag">NIS2 / ISO 27001</span><span class="exp-tag">Mosyle MDM</span><span class="exp-tag">Google Workspace</span><span class="exp-tag">GCP</span><span class="exp-tag">Jira ITSM</span><span class="exp-tag">AI Governance</span><span class="exp-tag">AV Infrastructure</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BITVAVO -->
+      <div class="exp-entry reveal">
+        <div class="exp-inner">
+          <div class="exp-left">
+
+            <div class="exp-period">Aug 2023 — May 2024</div>
+            <div class="exp-co">Bitvavo</div>
+            <div class="exp-loc">Amsterdam · Hybrid</div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-role-title">IT Engineer (Tier II)</div>
+            <div class="exp-prose">Bitvavo is one of Europe's largest crypto exchanges. The pace was relentless and the expectations were high. In less than a year, I resolved over 700 support tickets at a <strong>100% customer satisfaction rate</strong> — not by rushing, but by building a triage process that meant nothing got dropped and resolutions were documented.<br/><br/>I led a full ITSM platform migration — running a structured proof of concept comparing Zendesk vs. Jira architectures, presenting the recommendation to stakeholders, and executing the cutover without a single disruption to service. I also owned IAM through Okta, and <strong>redesigned onboarding for 50+ new hires, cutting manual effort by ~60%.</strong></div>
+            <div class="exp-tags"><span class="exp-tag">Okta SSO / RBAC</span><span class="exp-tag">Kandji MDM</span><span class="exp-tag">SentinelOne</span><span class="exp-tag">Zendesk</span><span class="exp-tag">Personio</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FENERGO -->
+      <div class="exp-entry reveal">
+        <div class="exp-inner">
+          <div class="exp-left">
+            
+            <div class="exp-period">Apr 2023 — Aug 2023</div>
+            <div class="exp-co">Fenergo</div>
+            <div class="exp-loc">Amsterdam · Hybrid</div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-role-title">IT Systems Engineer</div>
+            <div class="exp-prose">Following Sentinels' acquisition by Fenergo, I transitioned into a systems engineering remit to integrate IT operations across both organisations. I rebuilt the ticketing and incident workflows so both companies ran from a single coherent system, mapped and automated IT processes across the merged entity, and ensured <strong>zero operational disruption throughout a period when everything else was in flux.</strong></div>
+            <div class="exp-tags"><span class="exp-tag">Post-Acquisition Integration</span><span class="exp-tag">Zendesk</span><span class="exp-tag">Microsoft Teams</span><span class="exp-tag">Workflow Automation</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SENTINELS -->
+      <div class="exp-entry reveal">
+        <div class="exp-inner">
+          <div class="exp-left">
+            
+            <div class="exp-period">Jul 2022 — Apr 2023</div>
+            <div class="exp-co">Sentinels</div>
+            <div class="exp-loc">Amsterdam · Hybrid</div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-role-title">IT Engineer</div>
+            <div class="exp-prose">I joined Sentinels as the <strong>first and only IT hire</strong>, tasked with building the department from nothing. Within months I had a fully functional ticketing system, documented policies, ITSM workflows, and a zero-touch endpoint management programme through Mosyle and Apple Business Manager. The infrastructure I built supported a real ISO 27001 audit — one of the more tangible validations of doing the work properly.<br/><br/><strong>800+ tickets in under a year, perfect customer satisfaction throughout.</strong> 60+ onboardings and 20+ offboardings, all evidenced and compliant.</div>
+            <div class="exp-tags"><span class="exp-tag">IT Dept Build</span><span class="exp-tag">ISO 27001</span><span class="exp-tag">Mosyle ABM</span><span class="exp-tag">PagerDuty</span><span class="exp-tag">Jira + Slack ITSM</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BYNDER -->
+      <div class="exp-entry reveal">
+        <div class="exp-inner">
+          <div class="exp-left">
+            
+            <div class="exp-period">Oct 2021 — Apr 2022</div>
+            <div class="exp-co">Bynder</div>
+            <div class="exp-loc">Amsterdam · Hybrid</div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-role-title">IT Systems Engineer (Intern)</div>
+            <div class="exp-prose">Bynder is a global Digital Asset Management platform. As an intern I was trusted with real responsibilities — administering Jamf MDM, Okta IdP, Jira, Confluence, and Google Workspace. I implemented SSO and authentication policies, developed Python automation scripts via AWS Lambda, and maintained the IT asset and software licence inventory. <strong>Recognised by the team for setting a high standard in service delivery, collaboration, and documentation quality.</strong></div>
+            <div class="exp-tags"><span class="exp-tag">Jamf MDM</span><span class="exp-tag">Okta IdP</span><span class="exp-tag">Python / AWS Lambda</span><span class="exp-tag">REST APIs</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOMES ORANGEBURG -->
+      <div class="exp-entry reveal">
+        <div class="exp-inner">
+          <div class="exp-left">
+            
+            <div class="exp-period">Apr 2017 — May 2019</div>
+            <div class="exp-co">Homes Orangeburg</div>
+            <div class="exp-loc">Georgia, USA · Remote</div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-role-title">IT Associate</div>
+            <div class="exp-prose">My first full IT role — fully remote, fully solo, fully responsible. Provisioned and administered Google Workspace, Zoho CRM, WordPress, domain management, mail servers, and IP phone systems for a full-service real estate brokerage. This is where I learned what it means to be the only person keeping the technology running.</div>
+            <div class="exp-tags"><span class="exp-tag">Google Workspace</span><span class="exp-tag">Zoho CRM</span><span class="exp-tag">WordPress</span><span class="exp-tag">Domain Management</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <p class="lbl reveal">About</p>
+    <h2 class="sh reveal">The person<br/>behind the work.</h2>
+    <div class="about-layout">
+      <div class="about-prose reveal">
+        <p>I started my IT career in 2017 at a real estate brokerage in Georgia, USA — remote, solo, responsible for the entire technology stack. What I didn't know then was that this pattern would define the next seven years: <strong>showing up as the first IT person, building the department from nothing, and leaving something that would actually hold up without me.</strong></p>
+        <p>I've done that three times now. At Sentinels, I built the entire IT function from scratch and took it through an ISO 27001 audit before the company was acquired. At Bitvavo, I resolved over hundreds tickets with a 100% satisfaction rate while simultaneously migrating the entire ITSM platform. At Dexter Energy, I'm doing it again — this time with a particular focus on <strong>security compliance and the AI tool governance</strong> that most IT teams haven't caught up to yet.</p>
+        <p>I'm comfortable being the only person who understands both the technical depth and the business context. I write documentation people actually read. I run processes that don't fall apart when I'm on holiday. I believe IT should be an enabler of growth, not a bottleneck it has to work around.</p>
+        <p>Outside work I'm drawn to design — years of freelance brand work gave me an eye for detail that carries over into how I think about systems, interfaces, and processes. I speak four languages and I've built a career across three continents before settling in Amsterdam, where I've been based since 2021.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <p class="lbl reveal">Key projects</p>
+    <h2 class="sh reveal">Work that <em>made a dent.</em></h2>
+    <div class="proj-grid">
+      <div class="proj-card reveal"><span class="proj-glyph">🛡️</span><div class="proj-where">Dexter Energy · Sentinels</div><div class="proj-name">Security Baseline &amp; NIS2/ISO 27001 Alignment</div><div class="proj-desc">Built the security framework from scratch across two organisations. Covers endpoint protection policy, access governance, incident response procedures, disaster recovery planning, and audit logging. At Sentinels it supported a live ISO 27001 audit. At Dexter, it's the foundation toward formal certification — with the ISO 27001 Lead Implementer training from BSI now completed.</div></div>
+      <div class="proj-card reveal d1"><span class="proj-glyph">🔐</span><div class="proj-where">Bitvavo · Bynder</div><div class="proj-name">IAM &amp; Full User Lifecycle Automation</div><div class="proj-desc">Connected HRIS systems (Personio, BambooHR) with Okta and Google Workspace to fully automate user provisioning. New hires get the right access from day one. Leavers are deprovisioned properly on their last day. Eliminated an entire category of human error and reduced onboarding time by ~60%.</div></div>
+      <div class="proj-card reveal"><span class="proj-glyph">📡</span><div class="proj-where">Dexter Energy</div><div class="proj-name">7-Room AV Infrastructure Rollout</div><div class="proj-desc">End-to-end ownership from vendor evaluation through phased installation across 7 meeting rooms and a full All Hands space using Logitech and Q-SYS hardware. Came in under budget. Wrote the operational runbook that means every session runs without someone needing to call IT first.</div></div>
+      <div class="proj-card reveal d1"><span class="proj-glyph">⚙️</span><div class="proj-where">Bitvavo · Fenergo</div><div class="proj-name">ITSM Platform Migrations (Zero Disruption)</div><div class="proj-desc">Ran a structured POC at Bitvavo comparing Zendesk vs. Jira architectures. Built the business case, got stakeholder sign-off, executed the cutover with no service disruption. At Fenergo, led the post-acquisition IT integration — rebuilding ticketing and incident workflows so two organisations ran from one coherent system.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA GALLERY -->
+<!-- <section id="media-gallery">
+  <div class="wrap">
+    <p class="lbl reveal">Media</p>
+    <h2 class="sh reveal">Photos &amp; <em>videos.</em></h2>
+    <div class="media-tabs reveal">
+      <button class="media-tab active" onclick="switchTab(this,'photos')">📷 Photos</button>
+      <button class="media-tab" onclick="switchTab(this,'videos')">🎬 Videos</button>
+    </div>
+    <div id="tab-photos" class="media-panel active"></div>
+    <div id="tab-videos" class="media-panel video-panel"></div>
+  </div>
+</section> -->
+
+<!-- RECOMMENDATIONS -->
+<section id="recommendations">
+  <div class="wrap">
+    <p class="lbl reveal">Recommendations</p>
+    <h2 class="sh reveal">What people <em>say.</em></h2>
+    <div class="rec-grid">
+      <div class="rec-card reveal"><div class="rec-quote">"</div><div class="rec-text">Juna is one of the most kind and human people that I've come across, 24/7 available. He is reliable, has great technical skills and knowledge. A can do mentality, always with a smile, thinks ahead and understands the needs of his internal clients. A great colleague to work with and have fun with.</div><div class="rec-author"><div class="rec-name">Charlotte Modderkolk</div><div class="rec-title">HR Consultant — People &amp; Culture · Leadership Coaching</div></div></div>
+      <div class="rec-card reveal d1"><div class="rec-quote">"</div><div class="rec-text">I can not recommend Junayeth enough as an IT professional. He consistently goes above and beyond to help his colleagues, and his positive attitude is infectious. He has a knack for simplifying complex processes and making things more efficient.</div><div class="rec-author"><div class="rec-name">Amine Rhord</div><div class="rec-title">Design Leader · Scaling Human-centred Design in AI &amp; Enterprise Software</div></div></div>
+      <div class="rec-card reveal d2"><div class="rec-quote">"</div><div class="rec-text">I highly recommend Junayeth as an IT Engineer for any organization looking for a highly skilled and dedicated team member. He consistently demonstrated a broad technological skillset — from Jira and M365 to Zapier, to extensive experience in business process automation and continuity management.</div><div class="rec-author"><div class="rec-name">Konstantin Ehrenberger</div><div class="rec-title">Translating Business Problems into Automation Solutions</div></div></div>
+      <div class="rec-card reveal"><div class="rec-quote">"</div><div class="rec-text">He always goes above and beyond to ensure our IT operations run smoothly. His personal touch of optimism makes it a pleasure to work together. I have a lot of confidence in any project he would pick up, from optimizing access management to running IT support for large corporate customer events.</div><div class="rec-author"><div class="rec-name">Joost van Houten</div><div class="rec-title">Building AI Products · ex-McKinsey · Fintech Entrepreneur</div></div></div>
+      <div class="rec-card reveal d1"><div class="rec-quote">"</div><div class="rec-text">Genuine expert and incredibly efficient is the phrase that pops into my mind about Junayeth. Since the day I joined the organization, he has always been there to support me and set me up for success. Dedicated, self-motivated, organized, and competent.</div><div class="rec-author"><div class="rec-name">Marina Palmarini</div><div class="rec-title">People-First Recruiter · BlueHeart Energy</div></div></div>
+      <div class="rec-card reveal d2"><div class="rec-quote">"</div><div class="rec-text">I consider myself incredibly lucky to have him as a point of contact in IT Operations and Support. He always makes himself available and goes above and beyond to ensure smooth service on each and every request. Extremely professional and a real multitasker.</div><div class="rec-author"><div class="rec-name">Marcela Scatolin Calache</div><div class="rec-title">Strategic Customer Success Manager · Cornerstone OnDemand</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <p class="lbl reveal">Skills &amp; Tools</p>
+    <h2 class="sh reveal">What I <em>work with.</em></h2>
+    <div class="skills-layout">
+      <div class="skills-intro reveal"><p>Seven years across very different companies means a very wide toolkit. What holds it together is a consistent focus on the fundamentals: security, reliability, and processes that scale.</p><p>These are the tools and disciplines I use regularly.</p></div>
+      <div>
+        <div class="skill-row reveal"><div class="skill-cat">Security &amp; Compliance</div><div class="skill-pills"><span class="pill">NIS2</span><span class="pill">ISO 27001</span><span class="pill">GDPR</span><span class="pill">Zero Trust</span><span class="pill">Endpoint Security</span><span class="pill">Incident Response</span><span class="pill">Audit Trails</span></div></div>
+        <div class="skill-row reveal"><div class="skill-cat">Identity &amp; Access</div><div class="skill-pills"><span class="pill">Okta SSO / RBAC</span><span class="pill">MFA</span><span class="pill">Microsoft Entra ID</span><span class="pill">Azure AD</span><span class="pill">Personio</span><span class="pill">BambooHR</span></div></div>
+        <div class="skill-row reveal"><div class="skill-cat">Endpoint Management</div><div class="skill-pills"><span class="pill">Mosyle</span><span class="pill">Jamf</span><span class="pill">Kandji</span><span class="pill">Intune</span><span class="pill">Apple Business Manager</span><span class="pill">SentinelOne</span></div></div>
+        <div class="skill-row reveal"><div class="skill-cat">Platforms &amp; SaaS</div><div class="skill-pills"><span class="pill">Google Workspace</span><span class="pill">Office 365</span><span class="pill">Jira</span><span class="pill">Slack</span><span class="pill">Notion</span><span class="pill">GitLab</span><span class="pill">GCP</span><span class="pill">1Password</span></div></div>
+        <div class="skill-row reveal"><div class="skill-cat">Infrastructure</div><div class="skill-pills"><span class="pill">Network / Wi-Fi</span><span class="pill">Access Points</span><span class="pill">VPN</span><span class="pill">PagerDuty</span><span class="pill">Cisco Meraki</span><span class="pill">Q-SYS</span></div></div>
+        <div class="skill-row reveal"><div class="skill-cat">Automation &amp; Dev</div><div class="skill-pills"><span class="pill">Python</span><span class="pill">REST APIs</span><span class="pill">Zapier</span><span class="pill">Slack Workflows</span><span class="pill">AWS Lambda</span><span class="pill">GitHub Copilot</span><span class="pill">Claude</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="wrap">
+    <p class="lbl reveal">Certifications</p>
+    <h2 class="sh reveal">Credentials.</h2>
+    <div class="certs-cols reveal">
+      <div class="cert-cell"><div class="cert-dot"></div><div><div class="cert-n">ISO 27001 Lead Implementer</div><div class="cert-i">British Standards Institute (BSI)</div></div></div>
+      <div class="cert-cell"><div class="cert-dot"></div><div><div class="cert-n">ISO/IEC 27001:2022 Requirements</div><div class="cert-i">British Standards Institute (BSI)</div></div></div>
+      <div class="cert-cell"><div class="cert-dot"></div><div><div class="cert-n">Okta Certified Professional</div><div class="cert-i">Okta</div></div></div>
+      <div class="cert-cell"><div class="cert-dot"></div><div><div class="cert-n">Identity &amp; Access Management with Okta</div><div class="cert-i">Okta</div></div></div>
+      <div class="cert-cell"><div class="cert-dot"></div><div><div class="cert-n">GDPR Certification &amp; CIPP Preparation</div><div class="cert-i">ICAN Consultancy</div></div></div>
+      <div class="cert-cell"><div class="cert-dot"></div><div><div class="cert-n">Introduction to Service Management, ITIL 4</div><div class="cert-i">Udemy</div></div></div>
+      <div class="cert-cell"><div class="cert-dot"></div><div><div class="cert-n">Agile Project Management with Jira Cloud</div><div class="cert-i">Atlassian</div></div></div>
+      <div class="cert-cell"><div class="cert-dot"></div><div><div class="cert-n">BHV — Emergency First Aid</div><div class="cert-i">Intertraining BV</div></div></div>
+      <div class="cert-cell"><div class="cert-dot"></div><div><div class="cert-n">IELTS Band 7.5 — C1 English</div><div class="cert-i">British Council</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES & INTERESTS -->
+<section id="hobbies">
+  <div class="wrap">
+    <p class="lbl reveal">Outside work</p>
+    <h2 class="sh reveal">Interests &amp; <em>hobbies.</em></h2>
+    <div class="hobbies-grid">
+      <div class="hobby-card reveal">
+        <span class="hobby-icon">🎾</span>
+        <div class="hobby-name">Racket Sports</div>
+        <div class="hobby-body">Tennis, Padel, and Ping Pong — I enjoy all three. There's something satisfying about the combination of quick thinking and precise movement.</div>
+      </div>
+      <div class="hobby-card reveal d1">
+        <span class="hobby-icon">🏋️</span>
+        <div class="hobby-name">Fitness &amp; Training</div>
+        <div class="hobby-body">Regular gym sessions keep me focused and grounded. I approach training the same way I approach IT — consistent process, measurable progress, no shortcuts.</div>
+      </div>
+      <div class="hobby-card reveal d2">
+        <span class="hobby-icon">🏖️</span>
+        <div class="hobby-name">Hiking &amp; Outdoors</div>
+        <div class="hobby-body">Cliff paths above sunny beaches are my ideal reset. The contrast of rugged terrain and open water is hard to beat. A mix of challenge and calm.</div>
+      </div>
+      <div class="hobby-card reveal d3">
+        <span class="hobby-icon">🎬</span>
+        <div class="hobby-name">Video Editing</div>
+        <div class="hobby-body">A creative outlet that connects to my design background. Editing video is storytelling through pacing, colour, and sound — skills that carry over into how I communicate ideas at work.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages">
+  <div class="wrap reveal">
+    <p class="lbl">Languages</p>
+    <div class="lang-row">
+      <div class="lang-block"><div class="lang-n">English</div><div class="lang-l">Fluent · C1</div><div class="lang-track"><div class="lang-fill" data-w="95"></div></div></div>
+      <div class="lang-block"><div class="lang-n">Bengali</div><div class="lang-l">Native</div><div class="lang-track"><div class="lang-fill" data-w="100"></div></div></div>
+      <div class="lang-block"><div class="lang-n">Dutch</div><div class="lang-l">Elementary</div><div class="lang-track"><div class="lang-fill" data-w="30"></div></div></div>
+      <div class="lang-block"><div class="lang-n">Hindi / Urdu</div><div class="lang-l">Conversational</div><div class="lang-track"><div class="lang-fill" data-w="65"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="references">
+  <style>
+    /* REFERENCES */
+    #references {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 96px 52px;
+      position: relative;
+      z-index: 1;
+    }
+
+    #references .reference-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+      max-width: 900px;
+    }
+
+    #references .reference-head {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    #references .reference-avatar-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--faint);
+      flex-shrink: 0;
+      background: var(--ink);
+    }
+
+    #references .reference-avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(10%);
+    }
+
+    #references .reference-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    #references .reference-name-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    #references .reference-name {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--warm);
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    #references .reference-role-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border: 1px solid rgba(224,90,0,.28);
+      background: rgba(224,90,0,.08);
+      color: var(--orange);
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    #references .reference-date {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    #references .reference-body {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    #references .reference-body p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(242,237,228,.78);
+      margin: 0;
+    }
+
+    #references .reference-footer {
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    #references .reference-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--warm);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid var(--faint);
+      padding: 12px 16px;
+      border-radius: 4px;
+      transition: all .2s ease;
+    }
+
+    #references .reference-contact:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      background: var(--ora-g);
+    }
+
+    @media (max-width: 900px) {
+      #references {
+        padding: 60px 20px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      #references .reference-card {
+        padding: 22px;
+      }
+
+      #references .reference-head {
+        align-items: flex-start;
+      }
+
+      #references .reference-name {
+        font-size: 22px;
+      }
+
+      #references .reference-body p {
+        font-size: 15px;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <p class="lbl reveal">Reference</p>
+    <h2 class="sh reveal">A professional <em>reference</em>.</h2>
+
+    <div class="reference-card reveal">
+
+        <div class="reference-meta">
+          <div class="reference-name-row">
+            <h3 class="reference-name">Mark Gilchrist</h3>
+            <span class="reference-role-tag">IT Manager</span>
+          </div>
+          <p class="reference-date">Marcell</p>
+        </div>
+      </div>
+
+      <div class="reference-body">
+        <p>
+          Junayeth joined our small IT team for an internship from September 2021 to April 2022.
+          In that time he grew into a valued member of the team. He contributed significantly to
+          our ongoing projects, handled regular tasks diligently, and developed a firm understanding
+          of our software systems.
+        </p>
+
+        <p>
+          He delivered value early in his internship and continued to do so throughout. Aside from
+          being very astute, Junayeth is approachable and tackles challenges in a professional manner.
+          I would have no hesitation including him in our team again, and I’m certain he would make
+          a welcome addition to any team fortunate enough to have him.
+        </p>
+      </div>
+
+      <div class="reference-footer">
+        <a href="mailto:mark@gilchrist.nl" class="reference-contact">mark@gilchrist.nl</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-inner reveal">
+      <h2 class="contact-h">Let's<br/><em>work</em><br/>together.</h2>
+      <p class="contact-body">Open to IT Manager and IT Lead roles in Amsterdam. I'm particularly interested in fast-growing companies that take security seriously and want IT to be a genuine enabler of growth.</p>
+      <div class="contact-items">
+        <a href="mailto:jsprovat1@gmail.com" class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>jsprovat1@gmail.com</a>
+        <a href="tel:+31614414405" class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(+31) 6 144 144 05</a>
+        <a href="https://linkedin.com/in/JunayethProvat" target="_blank" rel="noopener" class="contact-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/JunayethProvat</a>
+        <a href="CV_Junayeth_2026.pdf" download class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="12" x2="12" y2="18"/><polyline points="9 15 12 18 15 15"/></svg>Download full CV (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Junayeth Shahriar Provat · Amsterdam</span>
+  <span id="yr"></span>
+</footer>
+
+<script>
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+// Nav scroll
+window.addEventListener("scroll", () => {
+  document.getElementById("nav").classList.toggle("scrolled", scrollY > 60);
+}, { passive: true });
+
+// Scroll reveal + language bars
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add("in");
+      e.target.querySelectorAll(".lang-fill").forEach(b => b.style.width = b.dataset.w + "%");
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+
+// Draggable photo strip
+const strip = document.getElementById("stripScroll");
+let isDown = false, sx, sl;
+strip.addEventListener("mousedown", e => { isDown = true; sx = e.pageX - strip.offsetLeft; sl = strip.scrollLeft; });
+strip.addEventListener("mouseleave", () => isDown = false);
+strip.addEventListener("mouseup", () => isDown = false);
+strip.addEventListener("mousemove", e => { if (!isDown) return; e.preventDefault(); strip.scrollLeft = sl - (e.pageX - strip.offsetLeft - sx) * 1.5; });
+
+// Media gallery — reads from MEDIA_CONFIG defined at top of file
+function switchTab(btn, tab) {
+  document.querySelectorAll(".media-tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".media-panel").forEach(p => p.classList.remove("active"));
+  btn.classList.add("active");
+  document.getElementById("tab-" + tab).classList.add("active");
+}
+
+function buildMedia() {
+  const photoPanel = document.getElementById("tab-photos");
+  const videoPanel = document.getElementById("tab-videos");
+
+  if (MEDIA_CONFIG.photos.length === 0) {
+    photoPanel.innerHTML = '<div class="media-empty"><span>📷</span>Add photos to <code>media/photos/</code> and update the MEDIA_CONFIG at the top of this file.</div>';
+  } else {
+    MEDIA_CONFIG.photos.forEach(p => {
+      photoPanel.innerHTML += `<div class="media-card"><img src="${p.src}" alt="${p.caption}" loading="lazy"/><div class="media-cap">${p.caption}</div></div>`;
+    });
+  }
+
+  if (MEDIA_CONFIG.videos.length === 0) {
+    videoPanel.innerHTML = '<div class="media-empty"><span>🎬</span>Add videos to <code>media/videos/</code> and update the MEDIA_CONFIG at the top of this file.</div>';
+  } else {
+    MEDIA_CONFIG.videos.forEach(v => {
+      videoPanel.innerHTML += `<div class="media-card"><video controls preload="metadata"><source src="${v.src}" type="video/mp4"/></video><div class="media-cap">${v.caption}</div></div>`;
+    });
+  }
+}
+buildMedia();
+</script>
+</body>
+</html>
